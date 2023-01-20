@@ -31,13 +31,13 @@ const pAequorFactory = (specimenNum, dna) => {
       return mDna;
     },
     compareDNA: function (obj) {
-      let iguales = 0;
+      let compare = 0;
 
       for (let index = 0; index < this.dna.length; index++) {
-        if (this.dna[index] === obj.dna[index]) iguales++;
+        if (this.dna[index] === obj.dna[index]) compare++;
       }
 
-      let porcentaje = (iguales * 100) / this.dna.length;
+      let porcentageLife = (compare * 100) / this.dna.length;
 
       return (
         "specimen #" +
@@ -45,13 +45,13 @@ const pAequorFactory = (specimenNum, dna) => {
         " and specimen #" +
         obj.specimenNum +
         " have " +
-        porcentaje.toFixed(1) +
+        porcentageLife.toFixed(1) +
         "% DNA in common"
       );
     },
     willLikelySurvive: function () {
       let bases = 0;
-      let porcentajeSurvive = 0;
+      let porcentageSurvive = 0;
 
       for (let index = 0; index < this.dna.length; index++) {
         if (this.dna[index] === "C" || this.dna[index] === "G") {
@@ -59,9 +59,9 @@ const pAequorFactory = (specimenNum, dna) => {
         }
       }
 
-      porcentajeSurvive = (bases * 100) / this.dna.length;
+      porcentageSurvive = (bases * 100) / this.dna.length;
 
-      if (porcentajeSurvive >= 60) {
+      if (porcentageSurvive >= 60) {
         return true;
       } else {
         return false;
