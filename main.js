@@ -28,21 +28,17 @@ const pAequorFactory = (specimenNum, dna) => {
       } while (mDna[0] === newBase);
 
       mDna[0] = newBase;
-      console.log("cambiar " + this.dna[0] + "por" + newBase);
       return mDna;
     },
     compareDNA: function (obj) {
       let iguales = 0;
 
-      console.log(this.dna);
-      console.log(obj.dna);
       for (let index = 0; index < this.dna.length; index++) {
         if (this.dna[index] === obj.dna[index]) iguales++;
       }
 
       let porcentaje = (iguales * 100) / this.dna.length;
 
-      console.log(iguales);
       return (
         "specimen #" +
         this.specimenNum +
@@ -76,14 +72,14 @@ const pAequorFactory = (specimenNum, dna) => {
 
 const instances = () => {
   let instancesStudy = [];
-  let index = 1;
+  let numSpecimen = 1;
 
   do {
-    let instancia = pAequorFactory(index, mockUpStrand());
+    let instancia = pAequorFactory(numSpecimen, mockUpStrand());
     
     if (instancia.willLikelySurvive() === true){
       instancesStudy.push(instancia);
-      index++
+      numSpecimen++
     }
 
   } while (instancesStudy.length < 30);
