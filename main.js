@@ -67,6 +67,28 @@ const pAequorFactory = (specimenNum, dna) => {
         return false;
       }
     },
+    complementStrand: function () {
+      let complement = [];
+
+        for (let index = 0; index < this.dna.length; index++) {
+          
+          if (this.dna[index] === 'A'){
+            complement.push('T')
+          }
+          if(this.dna[index] === 'T'){
+            complement.push('A')
+          }
+          if (this.dna[index] === 'C'){
+            complement.push('G')
+          }
+          if(this.dna[index] === 'G'){
+            complement.push('C')
+          }
+          
+        }
+    
+      return complement
+    }
   };
 };
 
@@ -88,12 +110,16 @@ const instances = () => {
 
   }
 
+
 const pAequor1 = pAequorFactory(1, mockUpStrand());
 const pAequor2 = pAequorFactory(2, mockUpStrand());
 const pAequor3 = pAequorFactory(3, mockUpStrand());
 
 //console.log(pAequor2.compareDNA(pAequor3));
 //console.log(pAequor1.willLikelySurvive());
-console.log(instances());
+//console.log(instances());
 
 //console.log(pAequor.mutate());
+
+console.log(pAequor1.dna)
+console.log(pAequor1.complementStrand());
